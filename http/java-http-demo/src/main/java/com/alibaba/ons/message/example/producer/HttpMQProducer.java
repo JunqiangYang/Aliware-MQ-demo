@@ -63,8 +63,10 @@ public class HttpMQProducer {
 		try {
 			HttpResponse<String> res = req.asString();
 			if (res.getStatus() == 201) {
+				System.out.println(res.getBody());
 				return true;
 			} else {
+				log.error(res.getBody());
 				log.error("post message error: {}", msg, res.getBody());
 			}
 		} catch (UnirestException e) {

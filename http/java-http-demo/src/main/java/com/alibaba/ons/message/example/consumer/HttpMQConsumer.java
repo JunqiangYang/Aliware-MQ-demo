@@ -59,7 +59,7 @@ public class HttpMQConsumer {
 	public boolean delete(String msgHandle) {
 		long time = System.currentTimeMillis();
 		HttpRequestWithBody req = Unirest.delete(url);
-		String signString = topic + NEWLINE + consumerId + NEWLINE + MD5.getInstance().getMD5String(msgHandle) + NEWLINE
+		String signString = topic + NEWLINE + consumerId + NEWLINE + msgHandle + NEWLINE
 				+ time;
 		String sign = AuthUtil.calSignature(signString.getBytes(StandardCharsets.UTF_8), secretKey);
 		req.header("Signature", sign);
@@ -67,6 +67,7 @@ public class HttpMQConsumer {
 		req.header("ConsumerID", consumerId);
 		req.queryString("topic", topic);
 		req.queryString("time", time);
+		req.queryString("timeout","300000");
 		req.queryString("msgHandle", msgHandle);
 		try {
 			HttpResponse<String> res = req.asString();

@@ -5,18 +5,18 @@
 
 	<bean id="consumer" class="com.alibaba.ons.message.example.consumer.HttpMQConsumer">
 		<!-- URL,请替换 -->
-		<property name="url" value="http://publictest-rest.ons.aliyun.com/message" />
+		<property name="url" value="http://domain/message" />
 
 		<!-- 阿里云身份验证码,请替换 -->
-		<property name="accessKey" value="XXX" />
+		<property name="accessKey" value="XXXXXX" />
 
 		<!-- 阿里云身份验证密钥,请替换 -->
-		<property name="secretKey" value="XXX" />
+		<property name="secretKey" value="XXXXXX" />
 
 		<!-- MQ控制台创建的Topic,请替换 -->
-		<property name="topic" value="XXX" />
+		<property name="topic" value="XXXXXX" />
 
 		<!-- MQ控制台创建的Consumer ID,请替换 -->
-		<property name="consumerId" value="XXX" />
+		<property name="consumerId" value="XXXXXX" />
 	</bean>
 </beans>

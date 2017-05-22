@@ -103,4 +103,8 @@ public class MD5 {
 		}
 		return data;
 	}
+
+	public static void main(String[] args) {
+		System.out.println(MD5.getInstance().getMD5String("123456"));
+	}
 }
